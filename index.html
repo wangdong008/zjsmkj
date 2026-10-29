@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <meta name="applicable-device" content="pc, mobile">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit"> 
+    <title>爱分享资源网引导页 </title>
+    <meta name="keywords" content="爱分享资源网,主页,个人引导,引导页,网站引导页">
+    <meta name="description" content="爱分享资源网是爱分享原创的一款简约开源的个人引导页源码，单页源码，没有后台，没有划水~">
+    <meta name="author" content="爱分享K">
+    <link rel="shortcut icon" href="https://cdn.8uid.cn/ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/style.css">
+<script>LA.init({id:"KFhrxL4l692BwYgG",ck:"KFhrxL4l692BwYgG"})</script>
+<style>
+/* 头部行：头像靠左 + 标题在头像后面居中 */
+.xf_headrow{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.2rem;
+    margin:0.12rem 0 0.08rem;
+}
+.xf_headrow .xf_author{
+    margin:0 !important;
+    flex-shrink:0;
+}
+/* 标题：橘黄红色渐变 + 阴影（位于头像后面，垂直居中） */
+.xf_headrow h1.xf_h1{
+    font-size:0.45rem !important;
+    background:linear-gradient(90deg,#ffb400,#ff6a00,#ff2d00,#ff6a00,#ffb400) !important;
+    background-size:200% 100% !important;
+    -webkit-background-clip:text !important;
+    background-clip:text !important;
+    -webkit-text-fill-color:transparent !important;
+    color:transparent !important;
+    font-style:normal !important;
+    font-weight:800 !important;
+    text-shadow:none !important;
+    filter:drop-shadow(0.02rem 0.04rem 0.04rem rgba(255,80,0,0.45));
+    animation:titlegrad 3s ease infinite;
+}
+@keyframes titlegrad{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@media screen and (max-width:640px){
+    .xf_headrow{
+        gap:0.1rem;
+        margin:0.08rem 0 0.06rem;
+    }
+    .xf_headrow h1.xf_h1{
+        font-size:6.4vw !important;
+        white-space:nowrap !important;
+        filter:drop-shadow(0.03rem 0.05rem 0.05rem rgba(255,80,0,0.5));
+    }
+}
+/* 微信、QQ 二维码：尺寸统一，居中显示，圆角 */
+.xf_wx, .xf_qq{
+    display:none;
+    width:100%;
+    text-align:center;
+}
+.myWX img, .myQQ img{
+    display:block !important;
+    margin:0.2rem auto !important;
+    width:2.4rem !important;
+    height:2.4rem !important;
+    max-width:70vw !important;
+    max-height:70vw !important;
+    object-fit:contain !important;
+    border-radius:0.12rem !important;
+    background:#fff !important;
+}
+.myWX p, .myQQ p{
+    font-size:0.14rem !important;
+    color:#222 !important;
+    line-height:1.8 !important;
+}
+/* 打字机文字引号：用图片、同一行前后对齐（高优先级覆盖 style.css） */
+body .xf_section .xf_speech::before{
+    content:'' !important;
+    background:url(static/image/quote-left.png) no-repeat center center !important;
+    background-size:contain !important;
+    display:block !important;
+    width:0.34rem !important;
+    height:0.34rem !important;
+    position:absolute !important;
+    left:-0.4rem !important;
+    right:auto !important;
+    top:50% !important;
+    bottom:auto !important;
+    transform:translateY(-50%) !important;
+    z-index:3 !important;
+}
+body .xf_section .xf_speech::after{
+    content:'' !important;
+    background:url(static/image/quote-right.png) no-repeat center center !important;
+    background-size:contain !important;
+    display:block !important;
+    width:0.34rem !important;
+    height:0.34rem !important;
+    position:absolute !important;
+    right:-0.4rem !important;
+    left:auto !important;
+    top:50% !important;
+    bottom:auto !important;
+    transform:translateY(-50%) !important;
+    z-index:2 !important;
+}
+/* 经营范围：双引号内文字框，框内一行横向循环滚动，框体完全在双引号内侧 */
+body .xf_section .xf_speech{
+    height:0.22rem !important;
+    min-height:0.22rem !important;
+    overflow:visible !important;
+    padding:0 !important;
+    width:56% !important;
+    margin:0.12rem auto !important;
+    position:relative !important;
+    background:transparent !important;
+    border:0.02rem solid transparent !important;
+    border-radius:0.12rem;
+    box-shadow:none !important;
+    display:flex;
+    align-items:center;
+}
+body .xf_section .xf_speech .xf_marquee{
+    overflow:hidden !important;
+    width:100% !important;
+    height:100% !important;
+}
+body .xf_section .xf_speech span{
+    position:static !important;
+    display:inline-block;
+    width:auto !important;
+    margin:0 !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+    text-overflow:clip !important;
+    font-size:0.13rem;
+    font-weight:bold;
+    color:#333;
+    animation:horiz 90s linear infinite;
+    will-change:transform;
+}
+@keyframes horiz{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-100%)}
+}
+body .xf_section .xf_speech::before,
+body .xf_section .xf_speech::after{
+    z-index:3 !important;
+}
+@media screen and (max-width:640px){
+    body .xf_section .xf_speech{ height:0.5rem !important; min-height:0.5rem !important; width:92% !important; margin:0.14rem auto !important; }
+    body .xf_section .xf_speech span{ font-size:0.26rem; font-weight:bold; }
+    body .xf_section .xf_speech::before,
+    body .xf_section .xf_speech::after{ top:50% !important; transform:translateY(-50%) !important; }
+}
+/* 复制成功提示弹窗 */
+.toast{
+    position:fixed;
+    top:40%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(0,0,0,0.78);
+    color:#fff;
+    padding:0.12rem 0.3rem;
+    border-radius:0.1rem;
+    z-index:99999;
+    display:none;
+    font-size:0.16rem;
+}
+
+/* ========== 全新卡片外观：渐变顶条 + 圆角 + 阴影 + emoji ========== */
+.xf_site ul{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.16rem;
+    padding:0.06rem 0;
+}
+.xf_site ul li{
+    position:relative;
+    width:100% !important;
+    margin:0 !important;
+    padding:0.2rem 0.2rem 0.16rem;
+    text-align:left;
+    border-radius:0.16rem !important;
+    box-sizing:border-box;
+    background:#fff;
+    box-shadow:0 0.02rem 0.08rem rgba(30,60,120,0.08);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    border:none !important;
+}
+.xf_site ul li:nth-child(odd),
+.xf_site ul li:nth-child(even){
+    border-radius:0.16rem !important;
+    border:none !important;
+}
+/* 顶部彩色渐变条，每个成语一个色系（彩虹色） */
+.xf_site ul li::before{
+    content:'';
+    position:absolute;
+    top:0;left:0;right:0;
+    height:0.05rem;
+}
+.xf_site ul li:nth-child(1)::before{background:linear-gradient(90deg,#ff9a9e,#fad0c4)}
+.xf_site ul li:nth-child(2)::before{background:linear-gradient(90deg,#ffb347,#ffcc70)}
+.xf_site ul li:nth-child(3)::before{background:linear-gradient(90deg,#f7971e,#ffd200)}
+.xf_site ul li:nth-child(4)::before{background:linear-gradient(90deg,#43cea2,#7bd5b5)}
+.xf_site ul li:nth-child(5)::before{background:linear-gradient(90deg,#36d1dc,#5b86e5)}
+.xf_site ul li:nth-child(6)::before{background:linear-gradient(90deg,#4facfe,#00f2fe)}
+.xf_site ul li:nth-child(7)::before{background:linear-gradient(90deg,#a18cd1,#fbc2eb)}
+.xf_site ul li:nth-child(8)::before{background:linear-gradient(90deg,#ee9ca7,#ffdde1)}
+.xf_site ul li:nth-child(9)::before{background:linear-gradient(90deg,#f953c6,#b91d73)}
+.xf_site ul li:nth-child(10)::before{background:linear-gradient(90deg,#1a2980,#26d0ce)}
+
+/* 标题行：emoji + 名称（左） + 域名徽章（右） */
+.xf_site ul li .item-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:0.08rem;
+    margin-bottom:0.08rem;
+}
+.xf_site ul li .item-title .title-left{
+    display:flex;
+    align-items:center;
+    gap:0.06rem;
+    font-size:0.21rem;
+    font-weight:800;
+    color:#222;
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    flex:1 1 auto !important;
+}
+.xf_site ul li .domain-tag{
+    display:inline-flex !important;
+    width:86px !important;
+    height:64px !important;
+    padding:0;
+    border:none;
+    text-decoration:none;
+    flex:0 0 auto !important;
+    cursor:pointer;
+    overflow:hidden;
+    background:none;
+    box-shadow:none;
+}
+.btn-glass-img{
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover;
+}
+.xf_site ul li .item-title{
+    display:flex;
+    align-items:center;
+}
+.xf_site ul li .item-title .domain-tag{
+    margin-left:auto;
+}
+
+/* 链接：可点击复制，带图标 */
+.xf_site ul li .item-link{
+    display:flex;
+    align-items:center;
+    gap:0.05rem;
+    font-size:0.17rem;
+    font-weight:700;
+    color:#1677ff;
+    margin:0.02rem 0;
+    cursor:pointer;
+    word-break:break-all;
+    line-height:1.4;
+}
+.xf_site ul li .item-link::before{
+    content:'🔗';
+    font-size:0.13rem;
+    flex-shrink:0;
+}
+.xf_site ul li .item-link:active{ color:#0052cc; }
+
+/* 说明 */
+.xf_site ul li .item-desc{
+    font-size:0.10rem;
+    color:#8a8f99;
+    line-height:1.5;
+    margin-top:0.04rem;
+}
+
+/* 手机小屏：自动单列，放大字号 */
+@media screen and (max-width:640px){
+    .xf_site ul{ grid-template-columns:1fr; gap:0.12rem; }
+    .xf_site ul li{ padding:0.18rem 0.2rem 0.14rem; border-radius:0.14rem !important; }
+    .xf_site ul li:nth-child(odd),
+    .xf_site ul li:nth-child(even){ border-radius:0.14rem !important; }
+    .xf_site ul li .item-title .title-left{ font-size:0.34rem; font-weight:800; }
+    .xf_site ul li .domain-tag{ font-size:0.34rem; padding:0 0.5rem; }
+    .xf_site ul li .item-link{ font-size:0.27rem; font-weight:700; }
+    .xf_site ul li .item-link::before{ font-size:0.2rem; }
+    .xf_site ul li .item-desc{ font-size:0.18rem; }
+}
+/* ========== 推荐报价：两列报价卡片 ========== */
+.xf_price{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.16rem;
+    padding:0.12rem 0.06rem 0;
+}
+.xf_price .price-item{
+    position:relative;
+    background:#fff;
+    border-radius:0.14rem;
+    box-shadow:0 0.02rem 0.08rem rgba(30,60,120,0.08);
+    padding:0.14rem 0.16rem 0.12rem;
+    overflow:hidden;
+    box-sizing:border-box;
+    border:none;
+}
+.xf_price .price-item::before{
+    content:'';
+    position:absolute;top:0;left:0;right:0;height:0.05rem;
+    background:linear-gradient(90deg,#ff6a88,#ff99ac);
+}
+.xf_price .price-item:nth-child(2n)::before{background:linear-gradient(90deg,#43cea2,#7bd5b5)}
+.xf_price .price-item:nth-child(3n)::before{background:linear-gradient(90deg,#f7971e,#ffd200)}
+.xf_price .price-item .pi-top{display:flex;justify-content:space-between;align-items:center;gap:0.08rem;margin-bottom:0.06rem;}
+.xf_price .price-item .pi-name{font-size:0.19rem;font-weight:800;color:#222;}
+.xf_price .price-item .pi-price{font-size:0.17rem;font-weight:800;color:#ff4d6d;flex-shrink:0;}
+.xf_price .price-item .pi-desc{font-size:0.12rem;color:#8a8f99;line-height:1.5;margin:0;}
+.price-note{text-align:center;font-size:0.13rem;color:#6b7a99;line-height:1.7;padding:0.16rem 0.06rem 0.02rem;}
+@media screen and (max-width:640px){
+    .xf_price{grid-template-columns:1fr;gap:0.12rem;}
+    .xf_price .price-item .pi-name{font-size:0.32rem;}
+    .xf_price .price-item .pi-price{font-size:0.3rem;}
+    .xf_price .price-item .pi-desc{font-size:0.22rem;}
+    .price-note{font-size:0.24rem;}
+}
+/* 云端播放器：固定右下角 */
+xf-music-player{
+    position:fixed !important;
+    right:12px !important;
+    bottom:12px !important;
+    z-index:9999 !important;
+}
+</style>
+</head>
+<body>
+    <div class="toast" id="toast">✅ 复制成功</div>
+    <header class="xf_header w">
+        <nav class="xf_nav">
+            <ul>
+                <li><a href="javascript:void(0);"><img src="static/picture/home.svg" alt=""><span>首页</span></a></li>
+                <li><a href="javascript:void(0);"><img src="static/picture/about.svg" alt=""><span>推荐报价</span></a></li>
+                <li><a href="javascript:void(0);"><img src="static/picture/wx.svg" alt=""><span>微信</span></a></li>
+                <li><a href="javascript:void(0);"><img src="static/picture/qq.svg" alt=""><span>QQ</span></a></li>
+            </ul>
+            <i class="xf_slither_color"></i>
+        </nav>
+    </header>
+    <section class="xf_section w">
+        <div class="xf_headrow">
+            <div class="xf_author"><div class="xf_mb"></div><img src="static/picture/headimg_dl.jpg" alt="author"><span class="xf_look">被你发现啦</span></div>
+            <h1 class="xf_h1">智捷数码科技</h1>
+        </div>
+        <h5 class="xf_speech"><div class="xf_marquee"><span class="type_code">经营范围：通信设备销售；电子产品销售；计算机及办公设备维修；计算机软硬件及辅助设备零售；计算机软硬件及辅助设备批发；打字复印；办公服务；安全技术防范系统设计施工服务；物联网设备销售；配电开关控制设备销售；数字视频监控系统销售；办公用品销售；家用电器销售；音响设备销售；网络设备销售；办公设备耗材销售；光伏设备及元器件销售；电线、电缆经营；五金产品零售；照明器具销售；安防设备销售；智能家庭消费设备销售；计算器设备销售；互联网设备销售；光通信设备销售；销售代理；通讯设备销售；通讯设备修理；移动终端设备销售；计算机系统服务；日用百货销售</span></div></h5>
+        <div class="xf_box">
+            <div class="xf_site">
+                <strong class="xf_card"><span>首 页</span></strong>
+                <ul class="li_site">
+                    <li>
+                        <div class="item-title">
+                            <span class="title-left">⛵ 一帆风顺·导航站</span>
+                            <a class="domain-tag" style="display:block;width:100px;height:74px;background:url(static/picture/btn_open.png) center/100% 100% no-repeat;border:none;cursor:pointer;overflow:hidden" href="https://gr.wangdong.cc.cd" target="_blank" rel="noopener" title="https://gr.wangdong.cc.cd" onclick="openNav(this)"></a>
+                        </div>
+                        <div class="item-link" onclick="copyText(this)" data-clip="https://gr.wangdong.cc.cd">https://gr.wangdong.cc.cd</div>
+                        <div class="item-desc">常用网站快捷入口集合</div>
+
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            <span class="title-left">🐉 二龙戏珠·导航站</span>
+                            <a class="domain-tag" style="display:block;width:100px;height:74px;background:url(static/picture/btn_open.png) center/100% 100% no-repeat;border:none;cursor:pointer;overflow:hidden" href="https://wd.wangdong.cc.cd" target="_blank" rel="noopener" title="https://wd.wangdong.cc.cd" onclick="openNav(this)"></a>
+                        </div>
+                        <div class="item-link" onclick="copyText(this)" data-clip="https://wd.wangdong.cc.cd">https://wd.wangdong.cc.cd</div>
+                        <div class="item-desc">资源聚合快速访问页面</div>
+
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            <span class="title-left">🦾 三头六臂·导航站</span>
+                            <a class="domain-tag" style="display:block;width:100px;height:74px;background:url(static/picture/btn_open.png) center/100% 100% no-repeat;border:none;cursor:pointer;overflow:hidden" href="https://dz.wangdong.cc.cd" target="_blank" rel="noopener" title="https://dz.wangdong.cc.cd" onclick="openNav(this)"></a>
+                        </div>
+                        <div class="item-link" onclick="copyText(this)" data-clip="https://dz.wangdong.cc.cd">https://dz.wangdong.cc.cd</div>
+                        <div class="item-desc">工具类快捷导航页面</div>
+
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            <span class="title-left">🛣️ 四通八达·导航站</span>
+                            <a class="domain-tag" style="display:block;width:100px;height:74px;background:url(static/picture/btn_open.png) center/100% 100% no-repeat;border:none;cursor:pointer;overflow:hidden" href="https://wddh.wangdong.cc.cd" target="_blank" rel="noopener" title="https://wddh.wangdong.cc.cd" onclick="openNav(this)"></a>
+                        </div>
+                        <div class="item-link" onclick="copyText(this)" data-clip="https://wddh.wangdong.cc.cd">https://wddh.wangdong.cc.cd</div>
+                        <div class="item-desc">综合服务导航页面</div>
+
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            <span class="title-left">🌈 五颜六色·导航站</span>
+                            <a class="domain-tag" style="display:block;width:100px;height:74px;background:url(static/picture/btn_open.png) center/100% 100% no-repeat;border:none;cursor:pointer;overflow:hidden" href="https://wdio.wangdong.cc.cd" target="_blank" rel="noopener" title="https://wdio.wangdong.cc.cd" onclick="openNav(this)"></a>
+                        </div>
+                        <div class="item-link" onclick="copyText(this)" data-clip="https://wdio.wangdong.cc.cd">https://wdio.wangdong.cc.cd</div>
+                        <div class="item-desc">在线工具集合站点</div>
+
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            <span class="title-left">🎉 六六大顺·导航站</span>
+                            <a class="domain-tag" style="display:block;width:100px;height:74px;background:url(static/picture/btn_open.png) center/100% 100% no-repeat;border:none;cursor:pointer;overflow:hidden" href="https://bk.wangdong.cc.cd" target="_blank" rel="noopener" title="https://bk.wangdong.cc.cd" onclick="openNav(this)"></a>
+                        </div>
+                        <div class="item-link" onclick="copyText(this)" data-clip="https://bk.wangdong.cc.cd">https://bk.wangdong.cc.cd</div>
+                        <div class="item-desc">文档笔记类站点</div>
+
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            <span class="title-left">🖼️ 七零八落·图床站</span>
+                            <a class="domain-tag" style="display:block;width:100px;height:74px;background:url(static/picture/btn_open.png) center/100% 100% no-repeat;border:none;cursor:pointer;overflow:hidden" href="https://tupian.wangdong.cc.cd" target="_blank" rel="noopener" title="https://tupian.wangdong.cc.cd" onclick="openNav(this)"></a>
+                        </div>
+                        <div class="item-link" onclick="copyText(this)" data-clip="https://tupian.wangdong.cc.cd">https://tupian.wangdong.cc.cd</div>
+                        <div class="item-desc">图片上传存储托管服务</div>
+
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            <span class="title-left">📝 八仙过海·博客站</span>
+                            <a class="domain-tag" style="display:block;width:100px;height:74px;background:url(static/picture/btn_open.png) center/100% 100% no-repeat;border:none;cursor:pointer;overflow:hidden" href="https://wp.wangdong.cc.cd" target="_blank" rel="noopener" title="https://wp.wangdong.cc.cd" onclick="openNav(this)"></a>
+                        </div>
+                        <div class="item-link" onclick="copyText(this)" data-clip="https://wp.wangdong.cc.cd">https://wp.wangdong.cc.cd</div>
+                        <div class="item-desc">技术笔记、分享文章站点</div>
+
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            <span class="title-left">🏠 九九归一·主页</span>
+                            <a class="domain-tag" style="display:block;width:100px;height:74px;background:url(static/picture/btn_open.png) center/100% 100% no-repeat;border:none;cursor:pointer;overflow:hidden" href="https://wangdong.cc.cd" target="_blank" rel="noopener" title="https://wangdong.cc.cd" onclick="openNav(this)"></a>
+                        </div>
+                        <div class="item-link" onclick="copyText(this)" data-clip="https://wangdong.cc.cd">https://wangdong.cc.cd</div>
+                        <div class="item-desc">站点总入口首页</div>
+
+                    </li>
+                    <li>
+                        <div class="item-title">
+                            <span class="title-left">📡 十全十美·直播源</span>
+                            <a class="domain-tag" style="display:block;width:100px;height:74px;background:url(static/picture/btn_open.png) center/100% 100% no-repeat;border:none;cursor:pointer;overflow:hidden" href="https://wd.xhihi.art/zby.m3u" target="_blank" rel="noopener" title="https://wd.xhihi.art/zby.m3u" onclick="openNav(this)"></a>
+                        </div>
+                        <div class="item-link" onclick="copyText(this)" data-clip="https://wd.xhihi.art/zby.m3u">https://wd.xhihi.art/zby.m3u</div>
+                        <div class="item-desc">iptv m3u 订阅地址</div>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="xf_about">
+                <strong class="xf_card"><span>推荐的报价</span></strong>
+                <div class="xf_price">
+                    <div class="price-item">
+                        <div class="pi-top"><span class="pi-name">📱 手机贴膜</span><b class="pi-price">15元起</b></div>
+                        <p class="pi-desc">高清膜/钢化膜，含手工费</p>
+                    </div>
+                    <div class="price-item">
+                        <div class="pi-top"><span class="pi-name">📲 手机换屏</span><b class="pi-price">99元起</b></div>
+                        <p class="pi-desc">按机型报价，内屏外屏均可</p>
+                    </div>
+                    <div class="price-item">
+                        <div class="pi-top"><span class="pi-name">🔋 电池更换</span><b class="pi-price">69元起</b></div>
+                        <p class="pi-desc">品牌电池，当天换好</p>
+                    </div>
+                    <div class="price-item">
+                        <div class="pi-top"><span class="pi-name">🧹 电脑清灰</span><b class="pi-price">30元起</b></div>
+                        <p class="pi-desc">台式/笔记本除尘散热</p>
+                    </div>
+                    <div class="price-item">
+                        <div class="pi-top"><span class="pi-name">💻 系统重装</span><b class="pi-price">50元起</b></div>
+                        <p class="pi-desc">Win/系统重装，驱动调试</p>
+                    </div>
+                    <div class="price-item">
+                        <div class="pi-top"><span class="pi-name">💾 数据恢复</span><b class="pi-price">100元起</b></div>
+                        <p class="pi-desc">手机/硬盘/存储卡找回</p>
+                    </div>
+                    <div class="price-item">
+                        <div class="pi-top"><span class="pi-name">🛠️ 电脑维修</span><b class="pi-price">检测免费</b></div>
+                        <p class="pi-desc">主板/电源/蓝屏/黑屏</p>
+                    </div>
+                    <div class="price-item">
+                        <div class="pi-top"><span class="pi-name">📹 安防监控</span><b class="pi-price">面议</b></div>
+                        <p class="pi-desc">安装/调试/维修，可上门</p>
+                    </div>
+                    <div class="price-item">
+                        <div class="pi-top"><span class="pi-name">🌐 网络布线</span><b class="pi-price">面议</b></div>
+                        <p class="pi-desc">门店/办公/家庭组网</p>
+                    </div>
+                    <div class="price-item">
+                        <div class="pi-top"><span class="pi-name">🖨️ 办公设备</span><b class="pi-price">面议</b></div>
+                        <p class="pi-desc">打印机/复印机/传真维修</p>
+                    </div>
+                </div>
+                <p class="price-note">以上为参考价，实际以到店检测或电话沟通为准，欢迎咨询洽谈~</p>
+            </div>
+            <div class="xf_wx">
+                <strong class="xf_card"><span>微 信</span></strong>
+                <div class="myWX">
+                    <img src="static/picture/wx.png" alt="微信二维码" class="wxImg">
+                    <p>手机号：155 1870 7076（微信同步）</p>
+                    <p>微信好友位，扫一扫洽谈合作</p>
+                </div>
+            </div>
+            <div class="xf_qq">
+                <strong class="xf_card"><span>Q Q</span></strong>
+                <div class="myQQ">
+                    <img src="static/picture/qq.png" alt="QQ二维码" class="qqImg">
+                    <p>QQ：690410125</p>
+                    <p>扫码添加QQ好友洽谈合作</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="xf_footer w">
+        <p>Copyright 2026 <a href="javascript:void(0);" rel="noopener noreferrer">智捷数码科技发布页</a> 本站已运行<span id="xf_timer"></span></p>
+        <p><a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer"><img src="static/picture/icp.png" alt="2026"></a></p>
+    </footer>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/sweetalert.min.js"></script>
+    <script src="static/js/typed.umd.js"></script>
+    <script src="static/js/fireworks.js"></script>
+    <script src="static/js/flexible.js"></script>
+    <script src="static/js/index.js?v=20261027d"></script>
+    <script src="static/js/mouse-effect.js?v=20261027d"></script>
+    <script>
+        let xf_text = ['经营范围：通信设备销售；电子产品销售；计算机及办公设备维修；计算机软硬件及辅助设备零售；计算机软硬件及辅助设备批发；打字复印；办公服务；安全技术防范系统设计施工服务；物联网设备销售；配电开关控制设备销售；数字视频监控系统销售；办公用品销售；家用电器销售；音响设备销售；网络设备销售；办公设备耗材销售；光伏设备及元器件销售；电线、电缆经营；五金产品零售；照明器具销售；安防设备销售；智能家庭消费设备销售；计算器设备销售；互联网设备销售；光通信设备销售；销售代理；通讯设备销售；通讯设备修理；移动终端设备销售；计算机系统服务；日用百货销售']
+        let xf_timer = new Date('2026/10/27 08:00:00').getTime()
+        let xf_off = 0
+
+        // 网站运行计时
+        function runTime(){
+            const now = Date.now();
+            const diff = now - xf_timer;
+            const day = Math.floor(diff / (1000*60*60*24));
+            const hour = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+            const minute = Math.floor((diff % (1000*60*60)) / (1000*60));
+            document.getElementById("xf_timer").innerText = ` ${day}天 ${hour}时 ${minute}分`;
+        }
+        runTime();
+        setInterval(runTime,60000);
+
+        // 点击链接一键复制
+        function copyText(el){
+            const txt = el.dataset.clip || el.innerText;
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(txt).then(function(){ showToast(); })
+                .catch(function(){ fallbackCopy(el, txt); });
+            } else {
+                fallbackCopy(el, txt);
+            }
+        }
+        function copyVal(txt){
+            // 用 execCommand（手机电脑通用，安卓/微信/iOS 均可），clipboard API 兜底
+            const ta = document.createElement('textarea');
+            ta.value = txt;
+            ta.setAttribute('readonly', 'readonly');
+            ta.style.position = 'fixed';
+            ta.style.top = '0';
+            ta.style.left = '0';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            ta.setSelectionRange(0, txt.length);
+            let done = false;
+            try { done = document.execCommand('copy'); } catch (e) { done = false; }
+            document.body.removeChild(ta);
+            if (done) { showToast(); }
+            else if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(txt).then(function(){ showToast(); })
+                .catch(function(){ alert('复制失败，请长按手动复制'); });
+            } else { alert('复制失败，请长按手动复制'); }
+        }
+        function fallbackCopy(el, txt){
+            const ta = document.createElement('textarea');
+            ta.value = txt;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); showToast(); }
+            catch(e){ alert('复制失败，请手动复制'); }
+            document.body.removeChild(ta);
+        }
+        function showToast(){
+            const t = document.getElementById('toast');
+            t.style.display = 'block';
+            clearTimeout(t._t);
+            t._t = setTimeout(function(){ t.style.display = 'none'; }, 1200);
+        }
+    </script>
+    <!-- 音乐播放器：官网云端歌曲播放器（旧api已被收购失效，改用云端接口） -->
+    <xf-music-player
+        language="zh"
+        theme="xf-original-theme"
+        mode="cloud"
+        api-url="https://music.api.xfyun.club/api/v1/music/top?platform=netease&topId=3778678"
+        is-auto-popup="true"
+        autoplay="true"
+    ></xf-music-player>
+    <script src="https://player.xfyun.club/js/music-player/music-player.min.js"></script>
+
+    <!-- ===== 通用名片弹窗（右键弹出） ===== -->
+    <style>
+        .card-mask{
+            position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.45);
+            display:none;align-items:center;justify-content:center;
+            z-index:99990;padding:16px;box-sizing:border-box;
+        }
+        .card-mask.show{display:flex}
+        .card-body{
+            background:#fff;border-radius:14px;width:340px;max-width:100%;
+            padding:20px 18px 18px;box-shadow:0 14px 40px rgba(0,0,0,.25);
+            animation:cardPop .28s ease;text-align:center;box-sizing:border-box;
+        }
+        @keyframes cardPop{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
+        .card-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+        .card-logo{width:56px;height:56px;border-radius:10px;object-fit:cover}
+        .card-name{font-size:20px;font-weight:800;color:#1f2a44;text-align:left}
+        .card-slogan{font-size:13px;color:#1677ff;font-weight:700;margin-top:4px;text-align:left}
+        .card-desc{font-size:13px;color:#4a5878;line-height:1.6;text-align:left;background:#f5f8ff;padding:10px;border-radius:8px;margin-bottom:12px}
+        .card-contact{display:grid;gap:8px;text-align:left;margin-bottom:12px}
+        .c-row{display:flex;align-items:center;gap:6px;font-size:14px;color:#333;background:#fafcff;padding:8px 10px;border-radius:8px;border:1px solid #eef1f8;text-decoration:none}
+        a.c-row:hover{background:#eef4ff;border-color:#c9dbff}
+        .card-qr{display:flex;gap:16px;justify-content:center;margin-bottom:14px}
+        .card-qr div{text-align:center;font-size:12px;color:#6b7a99}
+        .card-qr img{width:72px;height:72px;border-radius:8px;border:1px solid #e6ecf7;display:block;margin-bottom:4px}
+        .card-close{background:#2563eb;color:#fff;border:none;font-size:14px;font-weight:700;padding:9px 28px;border-radius:99px;cursor:pointer}
+    </style>
+    <div id="myCard" class="card-mask">
+        <div class="card-body">
+            <div class="card-top">
+                <img src="static/picture/headimg_dl.jpg" class="card-logo" alt="logo">
+                <div style="text-align:left">
+                    <div class="card-name">智捷数码科技</div>
+                    <div class="card-slogan">手机电脑维修 · 数码产品 · 网络安防</div>
+                </div>
+            </div>
+            <div class="card-desc">专注数码产品维修与销售，主营手机/电脑/办公设备维修、电子数码产品经营、网络与安防工程等服务。</div>
+            <div class="card-contact">
+                <a class="c-row" href="tel:15518707076" title="点击拨打电话">📞 电话：155 1870 7076</a>
+                <a class="c-row" href="weixin://" title="点击打开微信（已复制微信号）" onclick="copyVal('w690410125')">💬 微信：w690410125</a>
+                <a class="c-row" href="https://wpa.qq.com/msgrd?v=3&uin=690410125&site=qq&menu=yes" target="_blank" title="点击发起QQ聊天（已复制QQ号）" onclick="copyVal('690410125')">🐧 QQ：690410125</a>
+            </div>
+            <div class="card-qr">
+                <div><img src="static/picture/wx.png" alt="微信二维码"><span>微信</span></div>
+                <div><img src="static/picture/qq.png" alt="QQ二维码"><span>QQ</span></div>
+            </div>
+            <button class="card-close" onclick="closeCard()">关 闭</button>
+        </div>
+    </div>
+</body>
+</html>
